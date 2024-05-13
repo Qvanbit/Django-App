@@ -28,7 +28,6 @@ class DjangoCacheCodeService(BaseCodeService):
 
     def validate_code(self, code: str, customer: CustomerEntity) -> None:
         cache_code = cache.get(customer.phone)
-
         if cache_code is None:
             raise CodeNotFoundException(code=code)
 
